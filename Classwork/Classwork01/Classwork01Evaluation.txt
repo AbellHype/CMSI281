@@ -1,0 +1,12 @@
+
+Classwork01 Evaluation
+======================
+
+Nice job on this assignment, with a couple of comments:
+
+There are TABS in this code.  Baaaaadddd...
+
+There is no file header.  You should have at least something!
+
+Still, you get 95% out of 100% on this.
+
