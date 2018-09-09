@@ -1,0 +1,33 @@
+
+Classwork02 Evaluation
+======================
+
+You didn't turn it in, Abell.
+
+I gave you guys until Friday, and I' evaluating on Sunday
+and it's still not in your folder.
+
+scores:
+=============================
+MyFileCopier.java
+   prompts user for filename  [1 pt]     0
+   calls Source constructor   [1 pt]     0
+   calls getter method        [1 pt]     0
+   calls Target constructor   [1 pt]     0
+Source.java
+   reads file completely      [1 pt]     0
+   has getter or returning    [1 pt]     0
+Target.java
+   writes file completely     [1 pt]     0
+file hdrs (3)                 [3 pt]     0
+no tabs                       [1 pt]     0
+indenting consistent          [1 pt]     0
+descriptive variable names    [1 pt]     0
+
+total possible points         13 points
+
+
+you got 0 out of 13 which is 0% which is an F,
+
+
+
