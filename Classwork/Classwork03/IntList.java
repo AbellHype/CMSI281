@@ -1,4 +1,3 @@
-
 public class IntList implements IntListInterface {
       private int[] theList;
       private int   size;
@@ -28,9 +27,11 @@ public class IntList implements IntListInterface {
             size++;
             return true;
          } else {
-            // what should we do here, if there's no room?
+            makeBigger();
+            theList[size] = valueToAdd;
+            size++;
+            return true;
          }
-         return false;
       }
 
       public boolean insertValueAtIndex( int value, int index ) {
@@ -40,7 +41,9 @@ public class IntList implements IntListInterface {
             return true;
          }
          else{
-            makeBigger(index);
+            while (index >= theList.length){
+               makeBigger();
+            }
             holeMaker(index);
             theList[index] = value;
             return true;            
@@ -75,27 +78,18 @@ public class IntList implements IntListInterface {
          size--;
       }
 
-      private void makeBigger( int index) {
-         int[] newList = new int[index + 1];
+      private void makeBigger() {
+         int[] newList = new int[theList.length + STARTING_SIZE];
          System.arraycopy(theList, 0, newList, 0, theList.length);
          theList = newList;
       }
 
       public static void main( String[] args ) {
          IntList list = new IntList();
+         list.append( 1 );
          list.append( 2 );
          list.append( 3 );
-         list.append( 5 );
-         list.append( 7 );
-         System.out.println( list.getValueAtIndex( 3 ) );   // should return the value 7
-         list.append( 11 );
-         list.append( 13 );
-         list.append( 17 );
-         list.append( 19 );
-         System.out.println( list.getValueAtIndex( 7 ) );      // should return the value 19
-         System.out.println( list.removeValueAtIndex( 3 ) );   // should return the value 7
-         System.out.println( list.getValueAtIndex( 3 ) );      // should return the value 11
-         System.out.println( list.getValueAtIndex( 18 ) );     // just to see what happens
-
+         list.append( 4 );
+         list.insertValueAtIndex(5,25);
       }
    }
