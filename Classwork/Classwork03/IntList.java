@@ -9,16 +9,11 @@ public class IntList implements IntListInterface {
          size = 0;
       }
 
-      public int getValueAtIndex( int index ) throws ArrayIndexOutOfBoundsException {
-         if( size == 0 ) {
-            throw new ArrayIndexOutOfBoundsException( "The list is empty!" );   // maybe not the best...
-         } else if( index > size ) {
-            throw new ArrayIndexOutOfBoundsException( "The index value is too large" );
-         } else if( index < 0 ) {
-            throw new ArrayIndexOutOfBoundsException( "The index value is too small");
-         } else {
-            return theList[index];
-         }
+      public int getValueAtIndex( int index ) {
+      if(checkIndex(index)){
+         return theList[index];
+      }
+      return -1; //Just to code to compile, improper index should be handled by checkIndex
       }
 
       public boolean append( int valueToAdd ) {
@@ -32,6 +27,11 @@ public class IntList implements IntListInterface {
             size++;
             return true;
          }
+      }
+
+      public boolean prepend(int valuetoAdd) {
+         insertValueAtIndex(valuetoAdd, 0);
+         return true;
       }
 
       public boolean insertValueAtIndex( int value, int index ) {
@@ -50,8 +50,16 @@ public class IntList implements IntListInterface {
          }  
       }
 
-      public int removeValueAtIndex( int index ) throws ArrayIndexOutOfBoundsException {
-         int value = theList[index];
+      public int removeValueAtIndex( int index ) {
+         if (checkIndex(index)){
+            int value = theList[index];
+            holeFiller( index );
+            return value;
+         }
+         return -1; //Just to code to compile, improper index should be handled by checkIndex
+      }
+
+      private boolean checkIndex(int index) throws ArrayIndexOutOfBoundsException{
          if( size == 0 ) {
             throw new ArrayIndexOutOfBoundsException( "The list is empty!" );   // maybe not the best...
          } else if( index > size ) {
@@ -59,9 +67,8 @@ public class IntList implements IntListInterface {
          } else if( index < 0 ) {
             throw new ArrayIndexOutOfBoundsException( "The index value is too small");
          } else {
-            holeFiller( index );
+            return true;
          }
-         return value;
       }
 
       private void holeMaker( int index ) {
