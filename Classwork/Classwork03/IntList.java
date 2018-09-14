@@ -34,7 +34,14 @@ public class IntList implements IntListInterface {
 
       // we've gotta have this to actually get things to compile
       public boolean insertValueAtIndex( int value, int index ) {
-        return true;
+         if (index < theList.length){
+            holeFiller(index);
+            theList[index] = value;
+            return true;
+         }
+         else{
+            int[] newList = new int [index + 1];
+         }  
       }
 
       public int removeValueAtIndex( int index ) throws ArrayIndexOutOfBoundsException {
@@ -52,6 +59,13 @@ public class IntList implements IntListInterface {
       }
 
       private void holeFiller( int index ) {
+         for( int i = size - 1; i >= index; i-- ) {
+            theList[i+1] = theList[i];
+         }
+         size++;
+      }
+
+      private void holeMaker( int index ) {
          for( int i = index; i < size - 1; i++ ) {
             theList[i] = theList[i+1];
          }
