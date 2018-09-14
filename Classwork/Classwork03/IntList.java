@@ -1,3 +1,4 @@
+
 public class IntList implements IntListInterface {
       private int[] theList;
       private int   size;
@@ -32,15 +33,17 @@ public class IntList implements IntListInterface {
          return false;
       }
 
-      // we've gotta have this to actually get things to compile
       public boolean insertValueAtIndex( int value, int index ) {
          if (index < theList.length){
-            holeFiller(index);
+            holeMaker(index);
             theList[index] = value;
             return true;
          }
          else{
-            int[] newList = new int [index + 1];
+            makeBigger(index);
+            holeMaker(index);
+            theList[index] = value;
+            return true;            
          }  
       }
 
@@ -58,18 +61,24 @@ public class IntList implements IntListInterface {
          return value;
       }
 
-      private void holeFiller( int index ) {
+      private void holeMaker( int index ) {
          for( int i = size - 1; i >= index; i-- ) {
             theList[i+1] = theList[i];
          }
          size++;
       }
 
-      private void holeMaker( int index ) {
+      private void holeFiller( int index ) {
          for( int i = index; i < size - 1; i++ ) {
             theList[i] = theList[i+1];
          }
          size--;
+      }
+
+      private void makeBigger( int index) {
+         int[] newList = new int[index + 1];
+         System.arraycopy(theList, 0, newList, 0, theList.length);
+         theList = newList;
       }
 
       public static void main( String[] args ) {
