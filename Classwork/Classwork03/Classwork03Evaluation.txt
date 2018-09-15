@@ -1,0 +1,28 @@
+
+Classwork03 Evaluation
+======================
+
+Nice job on this assignment, with a couple of comments:
+
+You need to have a header block at the top of your files.
+I have specified this over and over, and you are losing points
+because of it.  I gave you the one point for the header in the
+optional EmptyListException.
+
+scores:
+=============================
+IntListInterface.java
+IntList.java
+   getValueAtIndex            [1 pt]
+   checkIndex                 [1 pt]
+   prepend                    [1 pt]
+headers in all files          [2 pt]   no headers = 0 points
+code style                    [1 pt]
+EmptyListException            [OPTIONAL 1 pt]
+
+total possible points         6 points
+      additional credit       1 point
+
+
+you got 4 out of 6 which is 66.67% which is a D
+
