@@ -82,6 +82,13 @@ class HighArray {
   }
   //-----------------------------------------------------------
   /**
+  * @return Long value in index
+  */
+  public long returnVal(int index){ // displays array contents
+    return a[index];
+  }
+  //-----------------------------------------------------------
+  /**
   * @return maximum value
   */
   public long getMax(){
