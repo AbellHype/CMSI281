@@ -16,34 +16,34 @@
 * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 class HighArray {
-private long[] a; // ref to array a
-private int nElems; // number of data items
-//-----------------------------------------------------------
+  private long[] a; // ref to array a
+  private int nElems; // number of data items
+  //-----------------------------------------------------------
 
-/**
-* constructor
-* @param  max the length of the array.
-*/
-public HighArray(int max){ // constructor
-a = new long[max]; // create the array
-nElems = 0; // no items yet
-}
-//-----------------------------------------------------------
-/**
-* @param  searchKey the value to be found in the array
-* @return Boolean result of array search
-*/
-public boolean find(long searchKey){ // find specified value
-int j;
-for(j=0; j<nElems; j++) // for each element,
-if(a[j] == searchKey) // found item?
-break;          //exit loop before end
-if(j == nElems) // gone to end?
-return false; // yes, can’t find it
-else
-return true; // no, found it
-} // end find()
-//-----------------------------------------------------------
+  /**
+  * constructor
+  * @param  max the length of the array.
+  */
+  public HighArray(int max){ // constructor
+    a = new long[max]; // create the array
+    nElems = 0; // no items yet
+  }
+  //-----------------------------------------------------------
+  /**
+  * @param  searchKey the value to be found in the array
+  * @return Boolean result of array search
+  */
+  public boolean find(long searchKey){ // find specified value
+    int j;
+    for(j=0; j<nElems; j++) // for each element,
+    if(a[j] == searchKey) // found item?
+    break;          //exit loop before end
+    if(j == nElems) // gone to end?
+    return false; // yes, can’t find it
+    else
+    return true; // no, found it
+  } // end find()
+  //-----------------------------------------------------------
   /**
   * @param  value long value to be inserted into array
   * @return none
