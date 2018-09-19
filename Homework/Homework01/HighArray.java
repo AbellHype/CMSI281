@@ -58,4 +58,17 @@ class HighArray {
 		}
 	}
 	//-----------------------------------------------------------
+	public void noDups(){
+		for(int j=1; j<nElems; j++){
+			for(int i=0; i<j; i++){
+				if(a[i] == a[j]){
+					for(int k=i; k<nElems; k++) // move higher ones down
+						a[k] = a[k+1];
+					nElems--; // decrement size
+					j--;
+					i--;
+				}
+			}
+		}
+	}
 } // end class HighArray
