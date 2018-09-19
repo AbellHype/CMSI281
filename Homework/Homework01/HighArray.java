@@ -35,7 +35,7 @@ class HighArray {
   */
   public boolean find(long searchKey){ // find specified value
     int j;
-    for(j=0; j<nElems; j++) // for each element,
+    for (j=0; j<nElems; j++) // for each element,
     if(a[j] == searchKey) // found item?
     break;          //exit loop before end
     if(j == nElems) // gone to end?
@@ -83,8 +83,12 @@ class HighArray {
   //-----------------------------------------------------------
   /**
   * @return Long value in index
+  * @throws  IllegalArgumentException if something is hinky
   */
   public long returnVal(int index){ // displays array contents
+    if (index >= a.length) {
+      throw new IllegalArgumentException("Index is too large");
+    }
     return a[index];
   }
   //-----------------------------------------------------------

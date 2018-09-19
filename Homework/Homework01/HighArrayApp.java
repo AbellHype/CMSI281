@@ -31,6 +31,7 @@ class HighArrayApp{
     arr.insert(00);
     arr.insert(66);
     arr.insert(33);
+    System.out.println("Value at index 2: " + arr.returnVal(2));
     arr.display(); // display items
     int searchKey = 35; // search for item
     System.out.print("Max in array: " + arr.getMax() + "\n");
@@ -65,6 +66,7 @@ class HighArrayApp{
     arr1.insert(03460);
     arr1.insert(63456);
     arr1.insert(3343433);
+    System.out.println("Value at index 2: " + arr1.returnVal(2));
     arr1.display(); // display items
     searchKey = 3343433; // search for item
     System.out.print("Max in array: " + arr1.getMax() + "\n");
@@ -99,6 +101,7 @@ class HighArrayApp{
     arr2.insert(35);
     arr2.insert(23);
     arr2.insert(234);
+    System.out.println("Value at index 2: " + arr2.returnVal(2));
     arr2.display(); // display items
     searchKey = -12435463; // search for item
     System.out.print("Max in array: " + arr2.getMax() + "\n");
@@ -129,6 +132,7 @@ class HighArrayApp{
     arr3.insert(-734565);
     arr3.insert(-1234);
     arr3.insert(-12435463);
+    System.out.println("Value at index 2: " + arr3.returnVal(2));
     arr3.display(); // display items
     searchKey = -12435463; // search for item
     System.out.print("Max in array: " + arr3.getMax() + "\n");
@@ -159,6 +163,7 @@ class HighArrayApp{
     arr4.insert(3);
     arr4.insert(4);
     arr4.insert(5);
+    System.out.println("Value at index 2: " + arr4.returnVal(2));
     arr4.display(); // display items
     searchKey = -5; // search for item
     System.out.print("Max in array: " + arr4.getMax() + "\n");
