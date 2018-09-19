@@ -22,6 +22,11 @@ class HighArrayApp{
 		arr.delete(00); // delete 3 items
 		arr.delete(55);
 		arr.delete(99);
+		arr.insert(77);
+		arr.insert(22);
 		arr.display(); // display items again
+		System.out.println(arr.getMax());
+		arr.noDups();
+		arr.display();
 	} // end main()
 } // end class HighArrayApp
