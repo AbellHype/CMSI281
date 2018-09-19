@@ -1,3 +1,20 @@
+/** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*  File name     :  HighArray.java
+*  Purpose       :  This class automates indexing for advanced array operations.
+*  Author        :  M. Abell & M. McPartlan
+*  Date          :  2018-09-19
+*  Description   :  This class automates indexing for advanced array operations. Includes the following fuctions:
+*                   public HighARray( int max );                  // Constructor for array of length max
+*                   public boolean find(long searchKey);          // Checks for elements in the array with value searchkey
+*                   public void insert(long value);               // Inserts value into array
+*                   public boolean delete(long value);            // Removes value from array
+*                   public void display();                        // Displays the array
+*                   public long getMax();                         // Returns maximum value in array
+*                   public void noDups();                         // Removes duplicate entries
+*
+*  Exceptions    :  None
+* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
 class HighArray {
 	private long[] a; // ref to array a
 	private int nElems; // number of data items
