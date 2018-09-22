@@ -1,0 +1,25 @@
+
+Classwork03 Evaluation
+======================
+
+Nice job on this assignment, with a couple of comments:
+
+Ecxcellent work!
+
+scores:
+=============================
+IntLinkedList.java
+   insertAt()                 [1 pt]
+   removeAt()                 [1 pt]
+IntLinkeListTester.java
+   added tests to existing    [OPTIONAL 1 pt]
+headers in all files          [2 pt]
+code style                    [1 pt]
+
+total possible points         5 points
+      additional credit       1 point
+
+
+
+you got 6 out of 5 which is 120% which is an A-plus
+
