@@ -11,10 +11,10 @@ public class IntQueue {
    }
 
    public int peek() {
-      return myStack.getIeratorAt( 0 ).getCurrentInt();     // we use the iterator
+      return myStack.getIteratorAt(myStack.getSize() - 1).getCurrentInt();     // we use the iterator
    }
 
    public int remove() {
-      return myStack.removeAt( 0 );
+      myStack.removeAt(myStack.getSize() - 1);
    }
 }   
