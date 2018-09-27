@@ -15,6 +15,8 @@ public class IntQueue {
    }
 
    public int remove() {
+      int toRemove = myStack.getIteratorAt(myStack.getSize() - 1).getCurrentInt();
       myStack.removeAt(myStack.getSize() - 1);
+      return toRemove;
    }
 }   
