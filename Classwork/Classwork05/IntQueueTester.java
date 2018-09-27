@@ -1,3 +1,8 @@
+//IntQueueTester.java
+//Written by Matthew Abell and B.J. Johnson
+//9/27/18
+//This program is made to test IntQueue
+
 public class IntQueueTester{
 	
 	IntQueueTester(){
