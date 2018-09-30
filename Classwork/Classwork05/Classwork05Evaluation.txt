@@ -1,0 +1,31 @@
+
+Classwork05 Evaluation
+======================
+
+Nice job on this assignment, with a couple of comments:
+
+You didn't rename the methods to something that is appropriate
+to a queue, as stated in the problem.  You did adequate testing
+but you can always do more!
+
+scores:
+=============================
+IntLinkedList.java
+   compiles                [1.00]
+
+IntQueue.java
+   changed to Queue name   [0.00]  still called "myStack"
+   changed to enqueue()    [0.00]  still called "push()"
+   changed to dequeue()
+      or remove()          [1.00]
+
+IntQueueTester.java
+   test coverage (3)       [3.00]
+
+headers(3)                 [3.00]
+code style                 [1.00]
+
+total possible points      11 points
+
+you got 9 out of 11 which is 81.82% which is a B-minus
+
