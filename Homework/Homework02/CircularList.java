@@ -18,22 +18,26 @@ class CircularList {
     this.current = new ListItem();
     current.value = initialValues[0];
 
-    ListItem prevItem = this.current;
-    ListItem currentItem;
-    for (int i = 1; i < initialValues.length + 1; i++) {
-      if (i == 1) {
-        currentItem = new ListItem();
-        currentItem.value = initialValues[i];
-      } else if (i < initialValues.length ) {
-        currentItem = new ListItem();
-        currentItem.value = initialValues[i];
-      } else {
-        currentItem = this.current;
+    if (initialValues.length == 1) {
+      this.current.nextItem = this.current;
+    } else {
+      ListItem prevItem = this.current;
+      ListItem currentItem;
+      for (int i = 1; i < initialValues.length + 1; i++) {
+        if (i == 1) {
+          currentItem = new ListItem();
+          currentItem.value = initialValues[i];
+        } else if (i < initialValues.length ) {
+          currentItem = new ListItem();
+          currentItem.value = initialValues[i];
+        } else {
+          currentItem = this.current;
+        }
+
+        prevItem.nextItem = currentItem;
+        prevItem = currentItem;
+
       }
-
-      prevItem.nextItem = currentItem;
-      prevItem = currentItem;
-
     }
   }
 
@@ -47,6 +51,10 @@ class CircularList {
       }
       step();
     }
+  }
+
+  public int getSize(){
+    return this.listSize;
   }
 
   public void step() {
@@ -70,8 +78,9 @@ class CircularList {
     insertItem.value = newArg;
     insertItem.nextItem = this.current.nextItem;
     this.current.nextItem = insertItem;
+    this.listSize += 1;
   }
-  // Deletes item ahead of current
+  // Deletes item ahead of current, steps over deleted value
   public String delete() {
     ListItem tempCurrent = this.current;
 
@@ -108,49 +117,7 @@ class CircularList {
     test.find("Hello!");
     test.printList();
     System.out.println();
-
-    // Generate josephus test string
-    String[] jArray = new String[20];
-    for (int iJ = 0; iJ < 20; iJ++) {
-      jArray[iJ] = String.valueOf(iJ + 1);
-      if (iJ == 6) {
-        jArray[iJ] = "Josephus";
-      }
-    }
-
-    // String[] jArray = {"1", "2", "3", "4", "5", "6", "7"};
-    String search = "Josephus";
-
-    System.out.println(Arrays.toString(jArray));
-
-    for (int jump = 2; jump < jArray.length; jump++) {
-      CircularList josephus = new CircularList(jArray);
-      System.out.println("--------------------------------------------");
-      // josephus.printList();
-      System.out.println("--------------------------------------------");
-      String[] deletionOrder = new String[jArray.length - 1];
-      int deleted = 0;
-      int count = 1;
-      while (deleted < jArray.length - 1) {
-        count += 1;
-        josephus.step();
-        if (count == jump) {
-          // System.out.println("Count: " + count);
-          count = 1;
-          String prevLoc = josephus.current.value;
-          deletionOrder[deleted] = josephus.delete();
-          josephus.find(prevLoc);
-          // josephus.printList();
-          // System.out.println(Arrays.toString(deletionOrder));
-          deleted += 1;
-        }
-      }
-      if (josephus.current.value == search) {
-        System.out.println("SUCCESS, count by: " + jump);
-        System.out.println(Arrays.toString(deletionOrder));
-        break;
-      }
-    }
+    System.out.println("-----------------------------");
     String[] numStr = {"1", "2", "3", "4", "5", "6", "7"};
     CircularList printTest = new CircularList(numStr);
     printTest.printList();
@@ -163,6 +130,33 @@ class CircularList {
     System.out.println("Current: " + printTest.current.value);
     printTest.printList();
     System.out.println("Current: " + printTest.current.value);
+    System.out.println("-----------------------------");
+    String[] numStr1 = {"1", "2"};
+    CircularList printTest1 = new CircularList(numStr1);
+    printTest1.printList();
+    printTest1.insert("3");
+    printTest1.printList();
+    System.out.println("-----------------------------");
+    String[] numStr2 = {"1"};
+    CircularList printTest2 = new CircularList(numStr2);
+    printTest2.printList();
+    printTest2.step();
+    printTest2.printList();
+    printTest2.step();
+    printTest2.printList();
+    printTest2.insert("2");
+    printTest2.printList();
+    printTest2.step();
+    printTest2.printList();
+    printTest2.step();
+    printTest2.printList();
+    printTest2.insert("3");
+    printTest2.printList();
+    System.out.println("Current: " + printTest2.current.value);
+    printTest2.delete();
+    printTest2.printList();
+    printTest2.delete();
+    printTest2.printList();
   }
 
 }
