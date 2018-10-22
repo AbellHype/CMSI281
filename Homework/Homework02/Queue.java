@@ -1,6 +1,7 @@
-// queue.java
-// demonstrates queue
-// to run this program: C>java QueueApp
+// Queue.java
+// This class creates a queue
+// Written by Matthew Abell and Matthew McPartlab
+//2018-10-22
 ////////////////////////////////////////////////////////////////
 class Queue{
 	private int maxSize;
@@ -48,7 +49,7 @@ class Queue{
 		return nItems;
 	}
 
-	public void display(){
+	public void display(){ //displays queue from front to rear
 		System.out.print("Front of Queue: ");
         if (isEmpty()){
         	System.out.println(" ");
