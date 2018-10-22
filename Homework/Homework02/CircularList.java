@@ -211,5 +211,4 @@ class CircularList {
     printTest2.delete();
     printTest2.printList();
   }
-
 }

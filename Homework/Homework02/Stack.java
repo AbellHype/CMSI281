@@ -13,11 +13,23 @@ class Stack {
   public CircularList internalStack;
   private String stackEnd;
 
+  //-----------------------------------------------------------
+  /**
+  * Constructor for Stack class.
+  * @param  None
+  * @return void
+  */
   public Stack() {
     String[] init = {""};
     this.internalStack = new CircularList(init);
   }
 
+  //-----------------------------------------------------------
+  /**
+  * Pushes the string parameter given as the next element of internalStack.
+  * @param  newVal string element to be pushed onto stack.
+  * @return void
+  */
   public void push(String newVal){
     if (newVal == "") {
       throw new IllegalArgumentException("Cannot push null to stack.");
@@ -26,6 +38,12 @@ class Stack {
     }
   }
 
+  //-----------------------------------------------------------
+  /**
+  * Pulls and deletes the top of the stack. Returns value pulled.
+  * @param  None
+  * @return String value of pulled node.
+  */
   public String pull(){
     if (this.internalStack.getSize() > 1) {
       String retValue = internalStack.delete();
@@ -36,6 +54,12 @@ class Stack {
     }
   }
 
+  //-----------------------------------------------------------
+  /**
+  * Prints the current value of the stack to the terminal.
+  * @param  None
+  * @return void
+  */
   public void printStack(){
     System.out.print("[");
     this.internalStack.step();
@@ -51,6 +75,12 @@ class Stack {
     this.internalStack.find("");
   }
 
+  //-----------------------------------------------------------
+  /**
+  * Tests for Stack class
+  * @param  None 
+  * @return void
+  */
   public static void main(String[] args) {
     Stack stack = new Stack();
     String[] testArray = {"this", "is", "a", "test", "array", "of", "strings"};
