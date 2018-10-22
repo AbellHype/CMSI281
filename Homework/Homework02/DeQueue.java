@@ -1,4 +1,4 @@
-// DeQueue.java
+/// DeQueue.java
 // This class creates a double ended queue
 // Written by Matthew Abell and Matthew McPartlab
 //2018-10-22
@@ -99,12 +99,7 @@ class DeQueue{
          System.out.println(" ");
         }
         else if(rear == -1){   //if insertRight has not been used
-         if (front != 0){
-            rear = 0;
-         }
-         else{
-            rear = nItems-1;
-         }   
+         rear = maxSize-1;
          int i = front;
          while (i != rear){
             System.out.print(queArray[i] + " ");
@@ -113,6 +108,7 @@ class DeQueue{
                i = 0;
             }
          }
+         System.out.println(queArray[rear]);
         }
         else{
            int i = front;
