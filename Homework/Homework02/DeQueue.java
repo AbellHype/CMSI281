@@ -21,18 +21,28 @@ class DeQueue{
 //--------------------------------------------------------------
    //@param long j: value to be inserted at the right side
    public void insertRight(long j){ // put item right side of the dequeue
-      if(rear == maxSize-1) // deal with wraparound
-         rear = -1;
-      queArray[++rear] = j; // increment rear and insert
-      nItems++; // one more item
+      if(isFull()){
+         System.out.println("Error, DeQueue is full");
+      }
+      else{
+         if(rear == maxSize-1) // deal with wraparound
+            rear = -1;
+         queArray[++rear] = j; // increment rear and insert
+         nItems++; // one more item
+      }
    }
 //--------------------------------------------------------------
    //@param long j: value to be inserted at the left side
    public void insertLeft(long j){ // put item left side of the dequeue
-      if(front == 0) // deal with wraparound
-         front = maxSize;
-      queArray[--front] = j; // decrement front and insert
-      nItems++; // one more item
+      if(isFull()){
+         System.out.println("Error, DeQueue is full");
+      }
+      else{
+         if(front == 0) // deal with wraparound
+            front = maxSize;
+         queArray[--front] = j; // decrement front and insert
+         nItems++; // one more item
+      }
    }
 //--------------------------------------------------------------
    //@return long: value removed from the left side
@@ -89,7 +99,12 @@ class DeQueue{
          System.out.println(" ");
         }
         else if(rear == -1){   //if insertRight has not been used
-         rear = 0;
+         if (front != 0){
+            rear = 0;
+         }
+         else{
+            rear = nItems-1;
+         }   
          int i = front;
          while (i != rear){
             System.out.print(queArray[i] + " ");
