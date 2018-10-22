@@ -10,6 +10,7 @@ class DeQueue{
 	private int rear;
 	private int nItems;
 //--------------------------------------------------------------
+	//@param int s: controls the maxSize of the dequeue
 	public DeQueue(int s){ // constructor
 		maxSize = s;
 		queArray = new long[maxSize];
@@ -18,6 +19,7 @@ class DeQueue{
 		nItems = 0;
 		}
 //--------------------------------------------------------------
+	//@param long j: value to be inserted at the right side
 	public void insertRight(long j){ // put item right side of the dequeue
 		if(rear == maxSize-1) // deal with wraparound
 			rear = -1;
@@ -25,6 +27,7 @@ class DeQueue{
 		nItems++; // one more item
 	}
 //--------------------------------------------------------------
+	//@param long j: value to be inserted at the left side
 	public void insertLeft(long j){ // put item left side of the dequeue
 		if(front == 0) // deal with wraparound
 			front = maxSize;
@@ -32,6 +35,7 @@ class DeQueue{
 		nItems++; // one more item
 	}
 //--------------------------------------------------------------
+	//@return long: value removed from the left side
 	public long removeLeft(){ // take item from left side of the dequeue
 		long temp = queArray[front++]; // get value and incr front
 		if(front == maxSize) // deal with wraparound
@@ -40,6 +44,7 @@ class DeQueue{
 		return temp;
 	}
 //--------------------------------------------------------------
+	//@return long: value removed from the right side
 	public long removeRight(){ // take item from the right side of the dequeue
 		long temp = queArray[rear--]; // get value and decr rear
 		if(rear == -1) // deal with wraparound
@@ -48,22 +53,27 @@ class DeQueue{
 		return temp;
 	}
 //--------------------------------------------------------------
+	//@return long: value peeked at from the left side
 	public long peekLeft(){ // peek at lesft most value of dequeue
 		return queArray[front];
 	}
 //--------------------------------------------------------------
+	//@return long: value peeked at from the right side
 	public long peekRight(){ // peek at the right most value of the dequeue
 		return queArray[rear];
 	}
 //--------------------------------------------------------------
+	//@return boolean: true boolean means that the dequeue is empty
 	public boolean isEmpty(){ // true if dequeue is empty
 		return (nItems==0);
 	}
 //--------------------------------------------------------------
+	//@return boolean: true boolean means that the dequeue is full
 	public boolean isFull(){ // true if dequeue is full
 		return (nItems==maxSize);
 	}
 //--------------------------------------------------------------
+	//@return int: number of items in dequeue
 	public int size(){ // number of items in dequeue
 		return nItems;
 	}
