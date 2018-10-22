@@ -47,8 +47,12 @@ class DeQueue{
 		return temp;
 	}
 //--------------------------------------------------------------
-	public long peekFront(){ // peek at front of queue
+	public long peekLeft(){ // peek at front of queue
 		return queArray[front];
+	}
+//--------------------------------------------------------------
+	public long peekRight(){ // peek at front of queue
+		return queArray[rear];
 	}
 //--------------------------------------------------------------
 	public boolean isEmpty(){ // true if queue is empty
@@ -66,6 +70,17 @@ class DeQueue{
 	public void display(){
         if (isEmpty()){
         	System.out.println(" ");
+        }
+        else if(rear == -1){
+        	rear = 0;
+        	int i = front;
+			while (i != rear){
+				System.out.print(queArray[i] + " ");
+				i++;
+				if (i == maxSize){
+					i = 0;
+				}
+			}
         }
         else{
 	        int i = front;
