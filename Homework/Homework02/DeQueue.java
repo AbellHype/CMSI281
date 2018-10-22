@@ -46,9 +46,12 @@ class DeQueue{
 //--------------------------------------------------------------
    //@return long: value removed from the right side
    public long removeRight(){ // take item from the right side of the dequeue
+      if(rear == -1){
+         rear = maxSize-1;
+      }
       long temp = queArray[rear--]; // get value and decr rear
       if(rear == -1) // deal with wraparound
-         front = maxSize;
+         rear = maxSize-1;
       nItems--; // one less item
       return temp;
    }
@@ -60,6 +63,9 @@ class DeQueue{
 //--------------------------------------------------------------
    //@return long: value peeked at from the right side
    public long peekRight(){ // peek at the right most value of the dequeue
+      if(rear == -1){
+         rear = maxSize-1;
+      }
       return queArray[rear];
    }
 //--------------------------------------------------------------
