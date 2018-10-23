@@ -57,12 +57,13 @@ class CircularList {
     System.out.print("[");
     for (int i = 0; i < this.listSize; i++) {
       if (i == this.listSize - 1) {
-        System.out.println(this.current.value + "]");
+        System.out.print(this.current.value);
       } else {
         System.out.print(this.current.value + ", ");
       }
       step();
     }
+    System.out.println("]");
   }
 
   //-----------------------------------------------------------
@@ -109,11 +110,23 @@ class CircularList {
   * @return void
   */
   public void insert(String newArg) {
-    ListItem insertItem = new ListItem();
-    insertItem.value = newArg;
-    insertItem.nextItem = this.current.nextItem;
-    this.current.nextItem = insertItem;
-    this.listSize += 1;
+    try {
+      if (newArg == "") {
+        throw new IllegalArgumentException("Cannot push null.");
+      }
+      if (this.listSize >= 1 && this.current.value != "") {
+        ListItem insertItem = new ListItem();
+        insertItem.value = newArg;
+        insertItem.nextItem = this.current.nextItem;
+        this.current.nextItem = insertItem;
+        this.listSize += 1;
+      } else if (this.listSize == 1 && this.current.value == "") {
+        this.current.value = newArg;
+      }
+    }
+    catch(Exception e) {
+      System.out.println(e.getMessage());
+    }
   }
 
   //-----------------------------------------------------------
@@ -123,14 +136,28 @@ class CircularList {
   * @return String value of deleted node.
   */
   public String delete() {
-    ListItem tempCurrent = this.current;
-
-    step();
-    String retValue = this.current.value;
-    this.listSize -= 1;
-    tempCurrent.nextItem = this.current.nextItem;
-    step();
-    return retValue;
+    try {
+      if (this.listSize > 1) {
+        ListItem tempCurrent = this.current;
+        step();
+        String retValue = this.current.value;
+        this.listSize -= 1;
+        tempCurrent.nextItem = this.current.nextItem;
+        step();
+        return retValue;
+      } else if (this.listSize == 1 && this.current.value == "") {
+        throw new ArrayIndexOutOfBoundsException("Nothing in list to delete.");
+      } else {
+        String retValue = this.current.value;
+        this.current.value = "";
+        this.current.nextItem = this.current;
+        return retValue;
+      }
+    }
+    catch(Exception e) {
+      System.out.println(e.getMessage());
+      return "";
+    }
   }
 
   //-----------------------------------------------------------
@@ -210,5 +237,65 @@ class CircularList {
     printTest2.printList();
     printTest2.delete();
     printTest2.printList();
+    System.out.println("-----------------------------");
+    System.out.println("Second tests");
+    System.out.println("-----------------------------");
+    String[] destTest = "This is yet another test case.".split(" ");
+    CircularList destroyMe = new CircularList(destTest);
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.insert("NEW1");
+    destroyMe.printList();
+    destroyMe.step();
+    destroyMe.printList();
+    destroyMe.insert("NEW2");
+    destroyMe.printList();
+    destroyMe.step();
+    destroyMe.printList();
+    destroyMe.insert("NEW3");
+    destroyMe.printList();
+    destroyMe.step();
+    destroyMe.printList();
+    destroyMe.insert("NEW4");
+    destroyMe.printList();
+    destroyMe.step();
+    destroyMe.printList();
+    destroyMe.insert("");
+    destroyMe.printList();
+    destroyMe.insert("NEW5");
+    destroyMe.printList();
+    destroyMe.step();
+    destroyMe.printList();
+    destroyMe.insert("NEW6");
+    destroyMe.printList();
+    destroyMe.step();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
+    destroyMe.delete();
+    destroyMe.printList();
   }
 }
