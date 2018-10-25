@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 class Stack {
   public CircularList internalStack;
-  private String stackEnd;
+  private String topOfStack;
 
   //-----------------------------------------------------------
   /**
@@ -31,11 +31,7 @@ class Stack {
   * @return void
   */
   public void push(String newVal){
-    if (newVal == "") {
-      throw new IllegalArgumentException("Cannot push null to stack.");
-    } else {
-      this.internalStack.insert(newVal);
-    }
+    this.internalStack.insert(newVal);
   }
 
   //-----------------------------------------------------------
@@ -46,9 +42,14 @@ class Stack {
   */
   public String pull(){
     if (this.internalStack.getSize() > 1) {
+      String currValue = internalStack.current.value;
       String retValue = internalStack.delete();
-      internalStack.find("");
+      internalStack.find(currValue);
       return retValue;
+    } else if (this.internalStack.getSize() == 1){
+        String retValue = this.internalStack.current.value;
+        this.internalStack.current.value = "";
+        return retValue;
     } else {
       throw new ArrayIndexOutOfBoundsException("Stack underflow");
     }
@@ -61,30 +62,20 @@ class Stack {
   * @return void
   */
   public void printStack(){
-    System.out.print("[");
-    this.internalStack.step();
-    for (int i = 1; i < this.internalStack.getSize(); i++) {
-      if (i == this.internalStack.getSize() - 1) {
-        System.out.print(this.internalStack.current.value);
-      } else {
-        System.out.print(this.internalStack.current.value + ", ");
-      }
-      this.internalStack.step();
-    }
-    System.out.println("]");
-    this.internalStack.find("");
+    this.internalStack.printList();
   }
 
   //-----------------------------------------------------------
   /**
   * Tests for Stack class
-  * @param  None 
+  * @param  None
   * @return void
   */
   public static void main(String[] args) {
     Stack stack = new Stack();
     String[] testArray = {"this", "is", "a", "test", "array", "of", "strings"};
     System.out.println("Pushing memory to stack...");
+    stack.internalStack.printList();
     for (int i = testArray.length - 1; i >= 0; i--) {
       stack.push(testArray[i]);
       testArray[i] = "";
