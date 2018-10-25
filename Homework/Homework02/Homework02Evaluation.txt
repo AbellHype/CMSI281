@@ -1,0 +1,49 @@
+
+Homework02 Evaluation
+======================
+
+Nice job on this assignment, with a couple of comments:
+
+Feel free to write a LOT more tests for your programs.  Remember
+there is no such thing as "too much testing".  The more you test,
+the more likely it will be you'll uncover bugs or errors that you
+didn't know about or anticipate.  Your testing is EXTREMELY
+anemic -- you guys can do better!  You wouldn't produce a hardware
+board without much more thorough testing would you?!
+
+scores:
+=============================
+Queue.java
+   Queue class compiles                      [1 pt.]
+   display method works                      [1 pt.]
+Deque.java
+   Deque class compiles                      [1 pt.]
+   insertLeft method works                   [1 pt.]
+   insertRight method works                  [1 pt.]
+   removeLeft method works                   [1 pt.]
+   removeRight method works                  [1 pt.]
+   isEmpty method works                      [1 pt.] written never tested 0.75
+   isFull method works                       [1 pt.] written never tested 0.75
+CircluarLinkedList.java
+   Circular linked list class compiles       [1 pt.]
+   insertion method works                    [1 pt.]
+   deletion method works                     [1 pt.]
+   searching method works                    [1 pt.]
+CircularStack.java
+   circular stack class                      [1 pt.]
+   works as advertised                       [1 pt.] not linke list 0.25
+Josephus.java
+   Josephus problem class                    [EC 1 pt.]
+   works as advertised                       [EC 1 pt.]
+
+Coding style                                 [1 pt.]
+Tests written to test all classes            [1 pt.] anemic 0.25
+Headers in all files                         [1 pt.] 5/7 = 0.71
+
+Total points is 18 for Queue, Deque, and Circular x2
+ extra credit is 2 points for Josephus
+-------------------
+ Grand total is 20 points
+
+you got 17.71 out of 20 which is 98.41% which is an A-plus
+
