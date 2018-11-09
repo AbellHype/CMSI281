@@ -85,7 +85,7 @@ class Huffman {
   }
 
   public String decode(byte[] encoding) {
-    return "fuck you";
+    return "no";
   }
 
   class HuffmanNode {
