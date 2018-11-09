@@ -111,7 +111,7 @@ class Huffman {
   * @return void
   */
   public static void main(String[] args) {
-    String testCase = "Hello world! dont FUCK ME IN THE ASSSSSSSSSSS";
+    String testCase = "Hello world.";
     Huffman huff = new Huffman();
     huff.encode(testCase);
   }
