@@ -41,8 +41,6 @@ public class Simon{
 		for (int i = 0; i < size; i++){
 			input = reader.nextLine();
 			if (toNumber(input) != command[i]){
-				System.out.println(input);
-				System.out.println(command[size - i - 1]);
 				return false;
 			}
 		}
@@ -86,14 +84,23 @@ public class Simon{
 		}
 	}
 	public static void main(String [] args) throws InterruptedException{
-		System.out.println("Let's play simons says, repeat after me! Make sure to hit enter after every input!");
-		Simon ex = new Simon();
-		boolean run = true;
-		while (run == true){
-			ex.setCommand();
-			ex.displayCommand();
-			run = ex.rightAnswer();
+		boolean again = true;
+		while(again){	
+			System.out.println("Let's play simons says, repeat after me! Make sure to hit enter after every character input!");
+			Simon ex = new Simon();
+			boolean run = true;
+			while (run == true){
+				ex.setCommand();
+				ex.displayCommand();
+				run = ex.rightAnswer();
+			}
+			System.out.println("Sorry, you lost");
+			System.out.println("Press Y to play again, press any other button to quit");
+			Scanner reader = new Scanner(System.in);
+			String answer = reader.nextLine();
+			if(ex.toNumber(answer) != 2){
+				again = false;
+			}
 		}
-		System.out.println("Sorry, you lost");
 	} 
 }
