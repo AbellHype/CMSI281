@@ -40,7 +40,7 @@ public class Simon{
 		Scanner reader = new Scanner(System.in);
 		for (int i = 0; i < size; i++){
 			input = reader.nextLine();
-			if (toNumber(input) != command[size - i - 1]){
+			if (toNumber(input) != command[i]){
 				System.out.println(input);
 				System.out.println(command[size - i - 1]);
 				return false;
