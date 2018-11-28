@@ -32,4 +32,39 @@ public class BinaryTreeNode {
   public int getData() {
     return data;
   }
+
+  public boolean hasChildren(){
+    if(left == null && right == null){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
+  public void inOrderTraversal(){
+    //System.out.print("R" + data + " ");
+    if(hasChildren() == false){
+      System.out.print(data);
+    }
+    else{
+      if(left != null){
+        if(left.hasChildren() == false){
+          System.out.print(left.data);
+        }
+        else{
+          left.inOrderTraversal();
+        }
+      }
+      System.out.print(data);
+      if(right != null){
+        if(right.hasChildren() == false){
+          System.out.print(right.data);
+        }
+        else{
+          right.inOrderTraversal();
+        }
+      }
+    }
+  }
 }
